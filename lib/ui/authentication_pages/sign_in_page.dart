@@ -1,4 +1,4 @@
-import 'package:Stories/custom_widgets/custom_input_decoration.dart';
+import 'package:Stories/ui/authentication_pages/new_user_page.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatefulWidget {
@@ -31,7 +31,10 @@ class _SignInPageState extends State<SignInPage> {
               .title
               .copyWith(color: Theme.of(context).primaryColor),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => NewUserPage()));
+        },
       ),
     );
 
@@ -83,8 +86,9 @@ class _SignInPageState extends State<SignInPage> {
                             alignment: Alignment(1.0, 0.0),
                             children: <Widget>[
                           TextField(
-                            //TODO Show suffix when textfield is not in focus
-                            decoration: InputDecoration(labelText: "Password"),
+                            decoration: InputDecoration(
+                              labelText: "Password",
+                            ),
                           ),
                           Positioned(
                             child: FlatButton(

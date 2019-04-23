@@ -1,4 +1,4 @@
-import 'package:Stories/pages/sign_in_page.dart';
+import 'package:Stories/ui/authentication_pages/sign_in_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
