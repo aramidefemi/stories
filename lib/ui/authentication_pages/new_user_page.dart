@@ -1,4 +1,4 @@
-import 'package:Stories/ui/tabs/home.dart';
+import 'package:Stories/ui/home.dart';
 import 'package:flutter/material.dart';
 
 class NewUserPage extends StatelessWidget {
@@ -35,7 +35,6 @@ class NewUserPage extends StatelessWidget {
           .copyWith(fontWeight: FontWeight.normal),
     );
     return Scaffold(
-        // resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: Theme.of(context).canvasColor,
           automaticallyImplyLeading: true,

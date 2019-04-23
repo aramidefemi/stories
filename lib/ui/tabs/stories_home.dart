@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
+class StoriesHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,16 +14,20 @@ class _HomeState extends State<Home> {
         ),
         backgroundColor: Theme.of(context).canvasColor,
         automaticallyImplyLeading: false,
-        elevation: 0.0,
         actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          Container(
+            margin: EdgeInsets.only(right: 16.0),
             child: CircleAvatar(
-              child: Text("X"),
+              backgroundColor: Colors.grey,
+              child: Icon(
+                Icons.person,
+                color: Colors.black,
+              ),
             ),
           )
         ],
       ),
+      body: Container(color: Colors.blue),
     );
   }
 }

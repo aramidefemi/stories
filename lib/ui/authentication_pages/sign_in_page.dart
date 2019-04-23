@@ -1,4 +1,5 @@
 import 'package:Stories/ui/authentication_pages/new_user_page.dart';
+import 'package:Stories/ui/home.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatefulWidget {
@@ -9,7 +10,6 @@ class SignInPage extends StatefulWidget {
   @override
   _SignInPageState createState() => _SignInPageState();
 }
-//TODO Remove blue highlight color from outline button
 
 class _SignInPageState extends State<SignInPage> {
   @override
@@ -17,6 +17,7 @@ class _SignInPageState extends State<SignInPage> {
     var newUserButton = SizedBox(
       width: double.infinity,
       child: OutlineButton(
+        highlightedBorderColor: Theme.of(context).primaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0),
         ),
@@ -52,7 +53,9 @@ class _SignInPageState extends State<SignInPage> {
                 color: Colors.white,
               ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (_) => Home()));
+        },
       ),
     );
     var appTitle = Text(
@@ -61,52 +64,54 @@ class _SignInPageState extends State<SignInPage> {
     );
 
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Container(
-          color: Theme.of(context).canvasColor,
-          height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.all(16.0),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                appTitle,
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Material(
-                        child: TextField(
-                      decoration: InputDecoration(labelText: "Email Address"),
-                    )),
-                    SizedBox(
-                      height: 16.0,
-                    ),
-                    Material(
-                        child: Stack(
-                            alignment: Alignment(1.0, 0.0),
-                            children: <Widget>[
-                          TextField(
-                            decoration: InputDecoration(
-                              labelText: "Password",
-                            ),
-                          ),
-                          Positioned(
-                            child: FlatButton(
-                              child: Text(
-                                "Forgot?",
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Container(
+            color: Theme.of(context).canvasColor,
+            height: MediaQuery.of(context).size.height,
+            padding: EdgeInsets.all(16.0),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  appTitle,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Material(
+                          child: TextField(
+                        decoration: InputDecoration(labelText: "Email Address"),
+                      )),
+                      SizedBox(
+                        height: 16.0,
+                      ),
+                      Material(
+                          child: Stack(
+                              alignment: Alignment(1.0, 0.0),
+                              children: <Widget>[
+                            TextField(
+                              decoration: InputDecoration(
+                                labelText: "Password",
                               ),
-                              onPressed: () {},
                             ),
-                          )
-                        ])),
-                    SizedBox(
-                      height: 32.0,
-                    ),
-                    signInButton,
-                  ],
-                ),
-                newUserButton,
-              ],
+                            Positioned(
+                              child: FlatButton(
+                                child: Text(
+                                  "Forgot?",
+                                ),
+                                onPressed: () {},
+                              ),
+                            )
+                          ])),
+                      SizedBox(
+                        height: 32.0,
+                      ),
+                      signInButton,
+                    ],
+                  ),
+                  newUserButton,
+                ],
+              ),
             ),
           ),
         ),
