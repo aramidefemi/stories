@@ -1,3 +1,4 @@
+import 'package:Stories/ui/tabs/home.dart';
 import 'package:flutter/material.dart';
 
 class NewUserPage extends StatelessWidget {
@@ -19,7 +20,9 @@ class NewUserPage extends StatelessWidget {
                 color: Colors.white,
               ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (_) => Home()));
+        },
       ),
     );
 
@@ -32,7 +35,7 @@ class NewUserPage extends StatelessWidget {
           .copyWith(fontWeight: FontWeight.normal),
     );
     return Scaffold(
-        resizeToAvoidBottomInset: false,
+        // resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: Theme.of(context).canvasColor,
           automaticallyImplyLeading: true,
@@ -55,15 +58,16 @@ class NewUserPage extends StatelessWidget {
           ),
           titleSpacing: 0.0,
           elevation: 0.0,
-          iconTheme: Theme.of(context).iconTheme.copyWith(opacity: 0.3),
+          iconTheme: Theme.of(context).iconTheme.copyWith(opacity: 0.5),
         ),
-        body: Container(
-          padding: EdgeInsets.symmetric(vertical: 32.0, horizontal: 16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Expanded(
-                child: Container(
+        body: SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height - kToolbarHeight,
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Container(
                   child: Form(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -102,16 +106,17 @@ class NewUserPage extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 16.0,
-              ),
-              signInButton,
-              SizedBox(
-                height: 8.0,
-              ),
-              verificationText,
-            ],
+                Column(
+                  children: <Widget>[
+                    signInButton,
+                    SizedBox(
+                      height: 8.0,
+                    ),
+                    verificationText,
+                  ],
+                ),
+              ],
+            ),
           ),
         ));
   }
