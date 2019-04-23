@@ -79,17 +79,22 @@ class _SignInPageState extends State<SignInPage> {
                       height: 16.0,
                     ),
                     Material(
-                        child: TextField(
-                          //TODO Show suffix when textfield is not in focus
-                      decoration: InputDecoration(
-                          suffix: FlatButton(
-                            child: Text(
-                              "Forgot",
-                            ),
-                            onPressed: () {},
+                        child: Stack(
+                            alignment: Alignment(1.0, 0.0),
+                            children: <Widget>[
+                          TextField(
+                            //TODO Show suffix when textfield is not in focus
+                            decoration: InputDecoration(labelText: "Password"),
                           ),
-                          hintText: "Password"),
-                    )),
+                          Positioned(
+                            child: FlatButton(
+                              child: Text(
+                                "Forgot?",
+                              ),
+                              onPressed: () {},
+                            ),
+                          )
+                        ])),
                     SizedBox(
                       height: 32.0,
                     ),
@@ -102,7 +107,6 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ),
       ),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
