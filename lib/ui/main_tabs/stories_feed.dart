@@ -14,8 +14,9 @@ class StoriesFeed extends StatelessWidget {
           "Stories",
           style: Theme.of(context)
               .textTheme
-              .title
-              .copyWith(fontWeight: FontWeight.bold),
+              .headline
+              .copyWith(
+              fontFamily: "Scriptorama"),
         ),
         backgroundColor: Theme.of(context).canvasColor,
         automaticallyImplyLeading: false,

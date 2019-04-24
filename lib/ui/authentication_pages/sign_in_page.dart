@@ -60,7 +60,9 @@ class _SignInPageState extends State<SignInPage> {
     );
     var appTitle = Text(
       "Stories",
-      style: Theme.of(context).textTheme.display2,
+      style: Theme.of(context).textTheme.display3.copyWith(
+          color: Theme.of(context).textTheme.body1.color,
+          fontFamily: "Scriptorama"),
     );
 
     return SafeArea(

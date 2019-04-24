@@ -1,8 +1,9 @@
 import 'package:Stories/ui/home.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class NewUserPage extends StatelessWidget {
-  String verificationMessage =
+  final String verificationMessage =
       "We'll send verification code to the above email to verify";
   @override
   Widget build(BuildContext context) {
@@ -87,9 +88,8 @@ class NewUserPage extends StatelessWidget {
                               ),
                               Positioned(
                                 child: IconButton(
-                                  icon: Icon(
-                                    Icons.arrow_drop_down_circle,
-                                  ),
+                                  icon:
+                                      Icon(MdiIcons.arrowDownDropCircleOutline),
                                   onPressed: () {},
                                 ),
                               ),

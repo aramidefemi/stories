@@ -3,6 +3,7 @@ import 'package:Stories/ui/main_tabs/stories_home_tabs/following.dart';
 import 'package:Stories/ui/main_tabs/stories_home_tabs/news.dart';
 import 'package:Stories/ui/main_tabs/stories_home_tabs/search.dart';
 import 'package:Stories/ui/main_tabs/stories_home_tabs/trending.dart';
+import 'package:Stories/ui/main_tabs/stories_home_tabs/upload_story.dart';
 import 'package:flutter/material.dart';
 
 class StoriesHome extends StatefulWidget {
@@ -28,7 +29,6 @@ class _StoriesHomeState extends State<StoriesHome>
 
   @override
   Widget build(BuildContext context) {
-
     var locationIndicator = Container(
       constraints: BoxConstraints(
         minWidth: MediaQuery.of(context).size.width * 0.4,
@@ -67,7 +67,8 @@ class _StoriesHomeState extends State<StoriesHome>
           style: Theme.of(context)
               .textTheme
               .title
-              .copyWith(fontWeight: FontWeight.bold),
+              .copyWith(
+              fontFamily: "Scriptorama"),
         ),
         backgroundColor: Theme.of(context).canvasColor,
         automaticallyImplyLeading: false,
@@ -110,7 +111,12 @@ class _StoriesHomeState extends State<StoriesHome>
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => UploadStory()
+            )
+          );
+        },
         child: Icon(Icons.add),
       ),
     );

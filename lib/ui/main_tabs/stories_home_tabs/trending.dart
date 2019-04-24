@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class Trending extends StatefulWidget {
   const Trending({
@@ -64,10 +65,7 @@ class _TrendingState extends State<Trending>
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Icon(
-                        Icons.remove_red_eye,
-                        color: Colors.white,
-                      ),
+                      Icon(MdiIcons.eyeOutline, color: Colors.white),
                       SizedBox(width: 4.0),
                       Text("2.9k",
                           style: TextStyle(
@@ -93,7 +91,7 @@ class _TrendingState extends State<Trending>
     var listTrendingWidget = ListView.separated(
       itemCount: 20,
       itemBuilder: ((BuildContext context, int index) {
-        return ListTile(
+        var listTileItem = ListTile(
           onTap: () {},
           leading: CircleAvatar(
             backgroundColor: Colors.grey,
@@ -112,12 +110,21 @@ class _TrendingState extends State<Trending>
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Icon(Icons.remove_red_eye),
+              Icon(MdiIcons.eyeOutline),
               SizedBox(width: 4.0),
               Text("2.9k", style: TextStyle(fontWeight: FontWeight.bold)),
             ],
           ),
         );
+        //The divider is added to the first item to show where tab bar stops
+        return index == 0
+            ? Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                Divider(
+                  color: Colors.grey,
+                ),
+                listTileItem
+              ])
+            : listTileItem;
       }),
       separatorBuilder: (BuildContext context, int index) {
         return Divider(
