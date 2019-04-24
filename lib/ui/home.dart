@@ -3,6 +3,7 @@ import 'package:Stories/ui/main_tabs/notifications.dart';
 import 'package:Stories/ui/main_tabs/stories_feed.dart';
 import 'package:Stories/ui/main_tabs/stories_home.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -34,7 +35,7 @@ class _HomeState extends State<Home> {
             title: Container(),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.view_agenda),
+            icon: Icon(MdiIcons.libraryBooks),
             title: Container(),
           ),
           BottomNavigationBarItem(
@@ -42,7 +43,7 @@ class _HomeState extends State<Home> {
             title: Container(),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
+            icon: Icon(MdiIcons.messageTextOutline),
             title: Container(),
           ),
         ],
