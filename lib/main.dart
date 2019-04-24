@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Color.fromRGBO(252, 13, 27, 1),
+        accentColor:  Color.fromRGBO(252, 13, 27, 1),
       ),
       home: SignInPage(),
     );

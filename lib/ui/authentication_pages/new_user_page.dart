@@ -108,9 +108,7 @@ class NewUserPage extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     signInButton,
-                    SizedBox(
-                      height: 8.0,
-                    ),
+                    SizedBox(height: 8.0),
                     verificationText,
                   ],
                 ),

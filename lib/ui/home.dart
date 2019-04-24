@@ -1,7 +1,7 @@
-import 'package:Stories/ui/tabs/message.dart';
-import 'package:Stories/ui/tabs/notifications.dart';
-import 'package:Stories/ui/tabs/stories_feed.dart';
-import 'package:Stories/ui/tabs/stories_home.dart';
+import 'package:Stories/ui/main_tabs/message.dart';
+import 'package:Stories/ui/main_tabs/notifications.dart';
+import 'package:Stories/ui/main_tabs/stories_feed.dart';
+import 'package:Stories/ui/main_tabs/stories_home.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {

@@ -28,8 +28,11 @@ class Message extends StatelessWidget {
         ],
       ),
       body: ListView.separated(
+        padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
         itemBuilder: ((BuildContext context, int index) {
           return ListTile(
+            enabled: true,
+            onTap: () {},
             leading: Container(
               child: Stack(alignment: Alignment.topRight, children: <Widget>[
                 CircleAvatar(
@@ -69,7 +72,7 @@ class Message extends StatelessWidget {
               ]),
             ),
             title: Text(
-              "Jon Doe",
+              "Lucy Matt",
               style: Theme.of(context).textTheme.subhead.copyWith(
                     color: (index == 0 || index == 2)
                         ? Theme.of(context).primaryColor
@@ -77,9 +80,12 @@ class Message extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
             ),
+
             subtitle: Text(
-              "Okay, wait, what have you been eating? 😂\nDon't tell me it's noodles again 🍜",
-              style: Theme.of(context).textTheme.caption,
+              "Yeah, that's cool. Let's say",
+              style: Theme.of(context).textTheme.caption.copyWith(
+                // fontWeight: FontWeight.normal
+              ),
             ),
             trailing: Text(
               "5 mins ago",
