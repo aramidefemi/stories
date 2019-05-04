@@ -1,4 +1,5 @@
-import 'package:Stories/ui/main_tabs/dummy_data.dart';
+import 'package:Stories/resources/dummy_data.dart';
+import 'package:Stories/ui/main_tabs/stories_home_tabs/background.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
@@ -171,6 +172,7 @@ class _UploadStoryState extends State<UploadStory> {
         ],
       ),
     );
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).canvasColor,
@@ -305,7 +307,7 @@ class _UploadStoryState extends State<UploadStory> {
                                 onChanged: (value) {
                                   print("changed");
                                   setState(() {
-                                  _value = value;
+                                    _value = value;
                                   });
                                   print(value + " to" + _value);
                                 },
@@ -334,7 +336,10 @@ class _UploadStoryState extends State<UploadStory> {
                             ),
                           ),
                           onPressed: () {
-                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => Background()));
                           },
                         ),
                       ],

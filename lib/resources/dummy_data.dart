@@ -118,5 +118,15 @@ class DummyData {
     "24h",
   ];
 
+  static List dummyCategoryList = [
+    "Weddings",
+    "Birthdays",
+    "Congratulations",
+    "Nature",
+    "Romance",
+    "Fashion",
+    "Nostalgia"
+  ];
+
   static String dummyImageUrl = "https://loremflickr.com/200/400/";
 }

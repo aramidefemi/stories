@@ -1,4 +1,4 @@
-import 'package:Stories/ui/main_tabs/dummy_data.dart';
+import 'package:Stories/resources/dummy_data.dart';
 import 'package:Stories/ui/main_tabs/stories_home_tabs/entertainment.dart';
 import 'package:Stories/ui/main_tabs/stories_home_tabs/following.dart';
 import 'package:Stories/ui/main_tabs/stories_home_tabs/news.dart';
