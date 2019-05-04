@@ -1,3 +1,4 @@
+import 'package:Stories/ui/main_tabs/dummy_data.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -13,6 +14,7 @@ class Trending extends StatefulWidget {
 class _TrendingState extends State<Trending>
     with SingleTickerProviderStateMixin {
   TabController tabController;
+  var dummyImageUrl = DummyData.dummyImageUrl;
 
   @override
   void initState() {
@@ -32,23 +34,27 @@ class _TrendingState extends State<Trending>
       scrollDirection: Axis.vertical,
       itemCount: 20,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, childAspectRatio: 2 / 3),
+          crossAxisCount: 2, childAspectRatio: 2 /3),
       itemBuilder: ((BuildContext context, int index) {
         return Card(
+          clipBehavior: Clip.antiAlias,
+
           child: Stack(alignment: Alignment(0.0, 0.9), children: <Widget>[
             Container(
               decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        dummyImageUrl + "girl?random=${index*index}",
+                      )),
                   //The gradient is added so the white text can be seen against images with white/bright backgrounds
                   gradient: LinearGradient(
                       begin: Alignment(0.0, 1.0),
                       end: Alignment(0.0, 0.4),
                       colors: [
-                    Colors.black38,
-                    Colors.transparent,
-                  ])),
-              child: Center(
-                child: Text("Image"),
-              ),
+                        Colors.black54,
+                        Colors.transparent,
+                      ])),
             ),
             Positioned(
               child: Row(
@@ -56,10 +62,8 @@ class _TrendingState extends State<Trending>
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   CircleAvatar(
-                    backgroundColor: Colors.grey,
-                    child: Icon(
-                      Icons.person,
-                      color: Colors.black,
+                    backgroundImage: NetworkImage(
+                      dummyImageUrl + "ladies?random=${index*index}",
                     ),
                   ),
                   Row(
@@ -78,11 +82,8 @@ class _TrendingState extends State<Trending>
             )
           ]),
           shape: RoundedRectangleBorder(
-            side: BorderSide(
-              width: 1.0,
-              color: Theme.of(context).primaryColor,
-            ),
             borderRadius: BorderRadius.circular(4.0),
+            
           ),
         );
       }),
@@ -94,10 +95,8 @@ class _TrendingState extends State<Trending>
         var listTileItem = ListTile(
           onTap: () {},
           leading: CircleAvatar(
-            backgroundColor: Colors.grey,
-            child: Icon(
-              Icons.person,
-              color: Colors.black,
+            backgroundImage: NetworkImage(
+              dummyImageUrl + "model,black,1",
             ),
           ),
           title: Text("Lucy Matt",

@@ -1,6 +1,9 @@
+import 'package:Stories/ui/main_tabs/dummy_data.dart';
 import 'package:flutter/material.dart';
 
 class Message extends StatelessWidget {
+  var dummyImageUrl = DummyData.dummyImageUrl;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,15 +19,12 @@ class Message extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: <Widget>[
           Container(
-            margin: EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.grey,
-              child: Icon(
-                Icons.person,
-                color: Colors.black,
-              ),
-            ),
-          )
+              margin: EdgeInsets.only(right: 16.0),
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  dummyImageUrl + "bella",
+                ),
+              ))
         ],
       ),
       body: ListView.separated(
@@ -36,10 +36,8 @@ class Message extends StatelessWidget {
             leading: Container(
               child: Stack(alignment: Alignment.topRight, children: <Widget>[
                 CircleAvatar(
-                  backgroundColor: Colors.grey,
-                  child: Icon(
-                    Icons.person,
-                    color: Colors.black,
+                  backgroundImage: NetworkImage(
+                    dummyImageUrl + "student?random=$index",
                   ),
                 ),
                 (index == 0 || index == 2)
@@ -80,12 +78,11 @@ class Message extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
             ),
-
             subtitle: Text(
               "Yeah, that's cool. Let's say",
               style: Theme.of(context).textTheme.caption.copyWith(
-                // fontWeight: FontWeight.normal
-              ),
+                  // fontWeight: FontWeight.normal
+                  ),
             ),
             trailing: Text(
               "5 mins ago",

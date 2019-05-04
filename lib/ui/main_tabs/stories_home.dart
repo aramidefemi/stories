@@ -1,3 +1,4 @@
+import 'package:Stories/ui/main_tabs/dummy_data.dart';
 import 'package:Stories/ui/main_tabs/stories_home_tabs/entertainment.dart';
 import 'package:Stories/ui/main_tabs/stories_home_tabs/following.dart';
 import 'package:Stories/ui/main_tabs/stories_home_tabs/news.dart';
@@ -14,6 +15,8 @@ class StoriesHome extends StatefulWidget {
 class _StoriesHomeState extends State<StoriesHome>
     with SingleTickerProviderStateMixin {
   TabController tabController;
+
+  var dummyImageUrl = DummyData.dummyImageUrl;
 
   @override
   void initState() {
@@ -67,8 +70,7 @@ class _StoriesHomeState extends State<StoriesHome>
           style: Theme.of(context)
               .textTheme
               .title
-              .copyWith(
-              fontFamily: "Scriptorama"),
+              .copyWith(fontFamily: "Scriptorama"),
         ),
         backgroundColor: Theme.of(context).canvasColor,
         automaticallyImplyLeading: false,
@@ -76,11 +78,10 @@ class _StoriesHomeState extends State<StoriesHome>
           locationIndicator,
           Container(
             margin: EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
-              backgroundColor: Colors.grey,
-              child: Icon(
-                Icons.person,
-                color: Colors.black,
+              backgroundImage: NetworkImage(
+                dummyImageUrl + "bella",
               ),
             ),
           )
@@ -112,10 +113,8 @@ class _StoriesHomeState extends State<StoriesHome>
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => UploadStory()
-            )
-          );
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (_) => UploadStory()));
         },
         child: Icon(Icons.add),
       ),

@@ -1,8 +1,11 @@
+import 'package:Stories/ui/main_tabs/dummy_data.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class StoriesFeed extends StatelessWidget {
-  const StoriesFeed({
+  final dummyImageUrl = DummyData.dummyImageUrl;
+
+  StoriesFeed({
     Key key,
   }) : super(key: key);
 
@@ -15,19 +18,17 @@ class StoriesFeed extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .headline
-              .copyWith(
-              fontFamily: "Scriptorama"),
+              .copyWith(fontFamily: "Scriptorama"),
         ),
         backgroundColor: Theme.of(context).canvasColor,
         automaticallyImplyLeading: false,
         actions: <Widget>[
           Container(
             margin: EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
-              backgroundColor: Colors.grey,
-              child: Icon(
-                Icons.person,
-                color: Colors.black,
+              backgroundImage: NetworkImage(
+                dummyImageUrl + "bella",
               ),
             ),
           )
@@ -45,10 +46,8 @@ class StoriesFeed extends StatelessWidget {
                 ListTile(
                     onTap: () {},
                     leading: CircleAvatar(
-                      backgroundColor: Colors.grey,
-                      child: Icon(
-                        Icons.person,
-                        color: Colors.black,
+                      backgroundImage: NetworkImage(
+                        dummyImageUrl + "model,black,1",
                       ),
                     ),
                     title: Text(
@@ -74,7 +73,11 @@ class StoriesFeed extends StatelessWidget {
                         : null),
                 Expanded(
                   child: Container(
-                    color: Colors.red.withOpacity(0.2),
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                                dummyImageUrl + "dogs, cute?random=${index*index}"))),
                   ),
                 ),
                 Container(

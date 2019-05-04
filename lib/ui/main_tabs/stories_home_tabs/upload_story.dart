@@ -1,3 +1,4 @@
+import 'package:Stories/ui/main_tabs/dummy_data.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
@@ -8,20 +9,9 @@ class UploadStory extends StatefulWidget {
 }
 
 class _UploadStoryState extends State<UploadStory> {
-  List<Color> dummyColorList = [
-    Colors.amber,
-    Colors.blue,
-    Colors.brown,
-    Colors.cyan,
-    Colors.green,
-    Colors.grey,
-    Colors.indigo,
-    Colors.lime,
-    Colors.orange,
-    Colors.pink,
-    Colors.purple,
-    Colors.red
-  ];
+  List<Color> dummyColorList = DummyData.dummyColorList;
+
+  final dummyImageUrl = DummyData.dummyImageUrl;
 
   KeyboardVisibilityNotification keyboardVisibilityNotification =
       KeyboardVisibilityNotification();
@@ -197,6 +187,7 @@ class _UploadStoryState extends State<UploadStory> {
           FlatButton(
             child: Text("Post"),
             onPressed: () {
+              selectCategory(context);
             },
             textColor: Theme.of(context).primaryColor,
           )
@@ -213,10 +204,8 @@ class _UploadStoryState extends State<UploadStory> {
                   children: <Widget>[
                     ListTile(
                       leading: CircleAvatar(
-                        backgroundColor: Colors.grey,
-                        child: Icon(
-                          Icons.person,
-                          color: Colors.black,
+                        backgroundImage: NetworkImage(
+                          dummyImageUrl + "selfie,7",
                         ),
                       ),
                       title: Text(
@@ -279,5 +268,82 @@ class _UploadStoryState extends State<UploadStory> {
         ),
       ),
     );
+  }
+
+  void selectCategory(context) async {
+    var _value = "1";
+
+    await showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+              return Dialog(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  width: double.infinity,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Expanded(
+                            child: Container(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text("Select Category")),
+                              DropdownButton(
+                                style: TextStyle(color: Colors.black),
+                                onChanged: (value) {
+                                  print("changed");
+                                  setState(() {
+                                  _value = value;
+                                  });
+                                  print(value + " to" + _value);
+                                },
+                                items: [
+                                  DropdownMenuItem(
+                                    value: "1",
+                                    child: Text("Entertainment"),
+                                  ),
+                                  DropdownMenuItem(
+                                    value: "2",
+                                    child: Text("News"),
+                                  ),
+                                ],
+                                value: _value,
+                              ),
+                            ],
+                          ),
+                        )),
+                        FlatButton(
+                          padding: EdgeInsets.symmetric(vertical: 16.0),
+                          color: Theme.of(context).primaryColor,
+                          child: Text(
+                            "Submit",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          );
+        });
   }
 }

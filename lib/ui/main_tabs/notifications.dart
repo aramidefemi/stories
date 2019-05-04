@@ -1,3 +1,4 @@
+import 'package:Stories/ui/main_tabs/dummy_data.dart';
 import 'package:flutter/material.dart';
 
 class Notifications extends StatefulWidget {
@@ -8,6 +9,9 @@ class Notifications extends StatefulWidget {
 class _NotificationsState extends State<Notifications>
     with SingleTickerProviderStateMixin {
   TabController tabController;
+
+    var dummyImageUrl = DummyData.dummyImageUrl;
+
 
   @override
   void initState() {
@@ -36,14 +40,13 @@ class _NotificationsState extends State<Notifications>
         automaticallyImplyLeading: false,
         actions: <Widget>[
           Container(
-            margin: EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.grey,
-              child: Icon(
-                Icons.person,
-                color: Colors.black,
-              ),
+          margin: EdgeInsets.only(right: 16.0),
+          padding: EdgeInsets.all(8.0),
+          child: CircleAvatar(
+            backgroundImage: NetworkImage(
+              dummyImageUrl + "bella",
             ),
+          ),
           ),
         ],
         bottom: TabBar(
@@ -73,9 +76,11 @@ class _NotificationsState extends State<Notifications>
 }
 
 class RepostNotifications extends StatelessWidget {
-  const RepostNotifications({
+   RepostNotifications({
     Key key,
   }) : super(key: key);
+
+  final dummyImageUrl = DummyData.dummyImageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -85,10 +90,8 @@ class RepostNotifications extends StatelessWidget {
         return ListTile(
           onTap: () {},
           leading: CircleAvatar(
-            backgroundColor: Colors.grey,
-            child: Icon(
-              Icons.person,
-              color: Colors.black,
+            backgroundImage: NetworkImage(
+              dummyImageUrl + "model,black,1",
             ),
           ),
           title: RichText(
@@ -110,10 +113,21 @@ class RepostNotifications extends StatelessWidget {
                 // fontWeight: FontWeight.normal
                 ),
           ),
-          trailing: Container(
-              padding: const EdgeInsets.all(16.0),
-              color: Colors.grey,
-              child: Icon(Icons.person)),
+          trailing: SizedBox(
+            height: 56,
+            width: 56,
+                      child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                    dummyImageUrl+"dance?random=$index"
+                  )
+                )
+              ),
+                padding: const EdgeInsets.all(16.0),
+                ),
+          ),
         );
       }),
       itemCount: 10,
@@ -127,7 +141,9 @@ class RepostNotifications extends StatelessWidget {
 }
 
 class CommentsNotifications extends StatelessWidget {
-  const CommentsNotifications({
+    final dummyImageUrl = DummyData.dummyImageUrl;
+
+   CommentsNotifications({
     Key key,
   }) : super(key: key);
 
@@ -139,11 +155,9 @@ class CommentsNotifications extends StatelessWidget {
         return ListTile(
           enabled: true,
           onTap: () {},
-          leading: CircleAvatar(
-            backgroundColor: Colors.grey,
-            child: Icon(
-              Icons.person,
-              color: Colors.black,
+         leading: CircleAvatar(
+            backgroundImage: NetworkImage(
+              dummyImageUrl + "model,black,1",
             ),
           ),
           title: RichText(
@@ -165,10 +179,21 @@ class CommentsNotifications extends StatelessWidget {
                 // fontWeight: FontWeight.normal
                 ),
           ),
-          trailing: Container(
-              padding: const EdgeInsets.all(16.0),
-              color: Colors.grey,
-              child: Icon(Icons.person)),
+         trailing: SizedBox(
+            height: 56,
+            width: 56,
+                      child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                    dummyImageUrl+"dance?random=$index"
+                  )
+                )
+              ),
+                padding: const EdgeInsets.all(16.0),
+                ),
+          ),
         );
       }),
       itemCount: 10,
@@ -182,7 +207,9 @@ class CommentsNotifications extends StatelessWidget {
 }
 
 class LovesNotifications extends StatelessWidget {
-  const LovesNotifications({
+  final dummyImageUrl = DummyData.dummyImageUrl;
+
+   LovesNotifications({
     Key key,
   }) : super(key: key);
 
@@ -195,10 +222,8 @@ class LovesNotifications extends StatelessWidget {
           enabled: true,
           onTap: () {},
           leading: CircleAvatar(
-            backgroundColor: Colors.grey,
-            child: Icon(
-              Icons.person,
-              color: Colors.black,
+            backgroundImage: NetworkImage(
+              dummyImageUrl + "model,black,1",
             ),
           ),
           title: RichText(
@@ -220,10 +245,21 @@ class LovesNotifications extends StatelessWidget {
                 // fontWeight: FontWeight.normal
                 ),
           ),
-          trailing: Container(
-              padding: const EdgeInsets.all(16.0),
-              color: Colors.grey,
-              child: Icon(Icons.person)),
+          trailing: SizedBox(
+            height: 56,
+            width: 56,
+                      child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                    dummyImageUrl+"dance?random=$index"
+                  )
+                )
+              ),
+                padding: const EdgeInsets.all(16.0),
+                ),
+          ),
         );
       }),
       itemCount: 10,
@@ -237,7 +273,9 @@ class LovesNotifications extends StatelessWidget {
 }
 
 class AllNotifications extends StatelessWidget {
-  const AllNotifications({
+    final dummyImageUrl = DummyData.dummyImageUrl;
+
+   AllNotifications({
     Key key,
   }) : super(key: key);
 
@@ -250,10 +288,8 @@ class AllNotifications extends StatelessWidget {
           enabled: true,
           onTap: () {},
           leading: CircleAvatar(
-            backgroundColor: Colors.grey,
-            child: Icon(
-              Icons.person,
-              color: Colors.black,
+            backgroundImage: NetworkImage(
+              dummyImageUrl + "model,black,1",
             ),
           ),
           title: RichText(
@@ -277,10 +313,21 @@ class AllNotifications extends StatelessWidget {
                 // fontWeight: FontWeight.normal
                 ),
           ),
-          trailing: Container(
-              padding: const EdgeInsets.all(16.0),
-              color: Colors.grey,
-              child: Icon(Icons.person)),
+          trailing: SizedBox(
+            height: 56,
+            width: 56,
+                      child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                    dummyImageUrl+"dance?random=$index"
+                  )
+                )
+              ),
+                padding: const EdgeInsets.all(16.0),
+                ),
+          ),
         );
       }),
       itemCount: 10,
