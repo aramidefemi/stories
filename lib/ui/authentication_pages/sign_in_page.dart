@@ -1,5 +1,5 @@
-import 'package:Stories/ui/authentication_pages/new_user_page.dart';
-import 'package:Stories/ui/home.dart';
+import 'package:stories/ui/authentication_pages/new_user_page.dart';
+import 'package:stories/ui/home.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatefulWidget {

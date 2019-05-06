@@ -1,10 +1,10 @@
-import 'package:Stories/resources/dummy_data.dart';
-import 'package:Stories/ui/main_tabs/stories_home_tabs/entertainment.dart';
-import 'package:Stories/ui/main_tabs/stories_home_tabs/following.dart';
-import 'package:Stories/ui/main_tabs/stories_home_tabs/news.dart';
-import 'package:Stories/ui/main_tabs/stories_home_tabs/search.dart';
-import 'package:Stories/ui/main_tabs/stories_home_tabs/trending.dart';
-import 'package:Stories/ui/main_tabs/stories_home_tabs/upload_story.dart';
+import 'package:stories/resources/dummy_data.dart';
+import 'package:stories/ui/main_tabs/stories_home_screens/entertainment.dart';
+import 'package:stories/ui/main_tabs/stories_home_screens/following.dart';
+import 'package:stories/ui/main_tabs/stories_home_screens/news.dart';
+import 'package:stories/ui/main_tabs/stories_home_screens/search.dart';
+import 'package:stories/ui/main_tabs/stories_home_screens/trending.dart';
+import 'package:stories/ui/main_tabs/stories_home_screens/upload_story.dart';
 import 'package:flutter/material.dart';
 
 class StoriesHome extends StatefulWidget {

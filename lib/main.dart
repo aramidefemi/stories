@@ -1,4 +1,4 @@
-import 'package:Stories/ui/authentication_pages/sign_in_page.dart';
+import 'package:stories/ui/authentication_pages/sign_in_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
         primaryColor: Color.fromRGBO(252, 13, 27, 1),
         accentColor: Color.fromRGBO(252, 13, 27, 1),
       ),
-      home: SignInPage(),
+      home: 
+      SignInPage(),
     );
   }
 }

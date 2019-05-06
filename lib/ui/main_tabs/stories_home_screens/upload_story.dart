@@ -1,5 +1,5 @@
-import 'package:Stories/resources/dummy_data.dart';
-import 'package:Stories/ui/main_tabs/stories_home_tabs/background.dart';
+import 'package:stories/resources/dummy_data.dart';
+import 'package:stories/ui/main_tabs/stories_home_screens/background.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';

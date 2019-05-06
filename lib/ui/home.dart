@@ -1,7 +1,7 @@
-import 'package:Stories/ui/main_tabs/message.dart';
-import 'package:Stories/ui/main_tabs/notifications.dart';
-import 'package:Stories/ui/main_tabs/stories_feed.dart';
-import 'package:Stories/ui/main_tabs/stories_home.dart';
+import 'package:stories/ui/main_tabs/message.dart';
+import 'package:stories/ui/main_tabs/notifications.dart';
+import 'package:stories/ui/main_tabs/stories_feed.dart';
+import 'package:stories/ui/main_tabs/stories_home.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 

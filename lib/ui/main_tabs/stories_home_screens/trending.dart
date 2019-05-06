@@ -1,17 +1,18 @@
-import 'package:Stories/resources/dummy_data.dart';
+import 'package:stories/resources/dummy_data.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:stories/ui/main_tabs/stories_home_screens/stories.dart';
 
-class Following extends StatefulWidget {
-  const Following({
+class Trending extends StatefulWidget {
+  const Trending({
     Key key,
   }) : super(key: key);
 
   @override
-  _FollowingState createState() => _FollowingState();
+  _TrendingState createState() => _TrendingState();
 }
 
-class _FollowingState extends State<Following>
+class _TrendingState extends State<Trending>
     with SingleTickerProviderStateMixin {
   TabController tabController;
   var dummyImageUrl = DummyData.dummyImageUrl;
@@ -36,52 +37,67 @@ class _FollowingState extends State<Following>
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, childAspectRatio: 2 / 3),
       itemBuilder: ((BuildContext context, int index) {
+        var storyImageUrl = dummyImageUrl + "girl?random=${index * index}";
         return Card(
           clipBehavior: Clip.antiAlias,
-          child: Stack(alignment: Alignment(0.0, 0.9), children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                        dummyImageUrl + "girl?random=${index * index}",
-                      )),
-                  //The gradient is added so the white text can be seen against images with white/bright backgrounds
-                  gradient: LinearGradient(
-                      begin: Alignment(0.0, 1.0),
-                      end: Alignment(0.0, 0.4),
-                      colors: [
-                        Colors.black54,
-                        Colors.transparent,
-                      ])),
-            ),
-            Positioned(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  CircleAvatar(
-                    backgroundImage: NetworkImage(
-                      dummyImageUrl + "ladies?random=${index * index}",
-                    ),
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Icon(MdiIcons.eyeOutline, color: Colors.white),
-                      SizedBox(width: 4.0),
-                      Text("2.9k",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white)),
-                    ],
-                  ),
-                ],
-              ),
-            )
-          ]),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(4.0),
+          ),
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => UserStories(
+                            storyImageUrl: storyImageUrl,
+                          )));
+            },
+            child: Stack(alignment: Alignment(0.0, 0.9), children: <Widget>[
+              // Hero(
+                // tag: storyImageUrl,
+                // child: 
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                          storyImageUrl,
+                        )),
+                    //The gradient is added so the white text can be seen against images with white/bright backgrounds
+                    gradient: LinearGradient(
+                      colors: <Color>[Colors.black12, Colors.black12],
+                      stops: [0.1, 0.5],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
+                // ),
+              ),
+              Positioned(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    CircleAvatar(
+                      backgroundImage: NetworkImage(
+                        dummyImageUrl + "ladies?random=${index * index}",
+                      ),
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Icon(MdiIcons.eyeOutline, color: Colors.white),
+                        SizedBox(width: 4.0),
+                        Text("2.9k",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white)),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ]),
           ),
         );
       }),

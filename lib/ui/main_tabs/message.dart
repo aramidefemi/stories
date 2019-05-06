@@ -1,4 +1,4 @@
-import 'package:Stories/resources/dummy_data.dart';
+import 'package:stories/resources/dummy_data.dart';
 import 'package:flutter/material.dart';
 
 class Message extends StatelessWidget {

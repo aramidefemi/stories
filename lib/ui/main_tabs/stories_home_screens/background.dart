@@ -1,5 +1,5 @@
-import 'package:Stories/resources/dummy_data.dart';
-import 'package:Stories/ui/main_tabs/stories_home.dart';
+import 'package:stories/resources/dummy_data.dart';
+import 'package:stories/ui/main_tabs/stories_home.dart';
 import 'package:flutter/material.dart';
 
 class Background extends StatelessWidget {
@@ -36,7 +36,7 @@ class Background extends StatelessWidget {
         ],
       ),
       body: ListView.builder(
-        padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+        padding: EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 0.0),
         itemCount: dummyCategoryList.length,
         itemBuilder: (context, index) {
           return Padding(
