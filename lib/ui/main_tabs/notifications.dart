@@ -1,5 +1,7 @@
 import 'package:stories/resources/dummy_data.dart';
 import 'package:flutter/material.dart';
+import 'package:stories/ui/profile_screens/other_user_profile.dart';
+import 'package:stories/ui/profile_screens/profile.dart';
 
 class Notifications extends StatefulWidget {
   @override
@@ -10,8 +12,7 @@ class _NotificationsState extends State<Notifications>
     with SingleTickerProviderStateMixin {
   TabController tabController;
 
-    var dummyImageUrl = DummyData.dummyImageUrl;
-
+  var dummyImageUrl = DummyData.dummyImageUrl;
 
   @override
   void initState() {
@@ -40,13 +41,19 @@ class _NotificationsState extends State<Notifications>
         automaticallyImplyLeading: false,
         actions: <Widget>[
           Container(
-          margin: EdgeInsets.only(right: 16.0),
-          padding: EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundImage: NetworkImage(
-              dummyImageUrl + "bella",
+            margin: EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.all(8.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => Profile()));
+              },
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  dummyImageUrl + "bella",
+                ),
+              ),
             ),
-          ),
           ),
         ],
         bottom: TabBar(
@@ -76,7 +83,7 @@ class _NotificationsState extends State<Notifications>
 }
 
 class RepostNotifications extends StatelessWidget {
-   RepostNotifications({
+  RepostNotifications({
     Key key,
   }) : super(key: key);
 
@@ -89,9 +96,15 @@ class RepostNotifications extends StatelessWidget {
       itemBuilder: ((BuildContext context, int index) {
         return ListTile(
           onTap: () {},
-          leading: CircleAvatar(
-            backgroundImage: NetworkImage(
-              dummyImageUrl + "model,black,1",
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => OtherUserProfile()));
+            },
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                dummyImageUrl + "model,black,1",
+              ),
             ),
           ),
           title: RichText(
@@ -116,17 +129,14 @@ class RepostNotifications extends StatelessWidget {
           trailing: SizedBox(
             height: 56,
             width: 56,
-                      child: Container(
+            child: Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    dummyImageUrl+"dance?random=$index"
-                  )
-                )
-              ),
-                padding: const EdgeInsets.all(16.0),
-                ),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image:
+                          NetworkImage(dummyImageUrl + "dance?random=$index"))),
+              padding: const EdgeInsets.all(16.0),
+            ),
           ),
         );
       }),
@@ -141,9 +151,9 @@ class RepostNotifications extends StatelessWidget {
 }
 
 class CommentsNotifications extends StatelessWidget {
-    final dummyImageUrl = DummyData.dummyImageUrl;
+  final dummyImageUrl = DummyData.dummyImageUrl;
 
-   CommentsNotifications({
+  CommentsNotifications({
     Key key,
   }) : super(key: key);
 
@@ -155,9 +165,15 @@ class CommentsNotifications extends StatelessWidget {
         return ListTile(
           enabled: true,
           onTap: () {},
-         leading: CircleAvatar(
-            backgroundImage: NetworkImage(
-              dummyImageUrl + "model,black,1",
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => OtherUserProfile()));
+            },
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                dummyImageUrl + "model,black,1",
+              ),
             ),
           ),
           title: RichText(
@@ -179,20 +195,17 @@ class CommentsNotifications extends StatelessWidget {
                 // fontWeight: FontWeight.normal
                 ),
           ),
-         trailing: SizedBox(
+          trailing: SizedBox(
             height: 56,
             width: 56,
-                      child: Container(
+            child: Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    dummyImageUrl+"dance?random=$index"
-                  )
-                )
-              ),
-                padding: const EdgeInsets.all(16.0),
-                ),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image:
+                          NetworkImage(dummyImageUrl + "dance?random=$index"))),
+              padding: const EdgeInsets.all(16.0),
+            ),
           ),
         );
       }),
@@ -209,7 +222,7 @@ class CommentsNotifications extends StatelessWidget {
 class LovesNotifications extends StatelessWidget {
   final dummyImageUrl = DummyData.dummyImageUrl;
 
-   LovesNotifications({
+  LovesNotifications({
     Key key,
   }) : super(key: key);
 
@@ -221,9 +234,15 @@ class LovesNotifications extends StatelessWidget {
         return ListTile(
           enabled: true,
           onTap: () {},
-          leading: CircleAvatar(
-            backgroundImage: NetworkImage(
-              dummyImageUrl + "model,black,1",
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => OtherUserProfile()));
+            },
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                dummyImageUrl + "model,black,1",
+              ),
             ),
           ),
           title: RichText(
@@ -248,17 +267,14 @@ class LovesNotifications extends StatelessWidget {
           trailing: SizedBox(
             height: 56,
             width: 56,
-                      child: Container(
+            child: Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    dummyImageUrl+"dance?random=$index"
-                  )
-                )
-              ),
-                padding: const EdgeInsets.all(16.0),
-                ),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image:
+                          NetworkImage(dummyImageUrl + "dance?random=$index"))),
+              padding: const EdgeInsets.all(16.0),
+            ),
           ),
         );
       }),
@@ -273,9 +289,9 @@ class LovesNotifications extends StatelessWidget {
 }
 
 class AllNotifications extends StatelessWidget {
-    final dummyImageUrl = DummyData.dummyImageUrl;
+  final dummyImageUrl = DummyData.dummyImageUrl;
 
-   AllNotifications({
+  AllNotifications({
     Key key,
   }) : super(key: key);
 
@@ -287,9 +303,15 @@ class AllNotifications extends StatelessWidget {
         return ListTile(
           enabled: true,
           onTap: () {},
-          leading: CircleAvatar(
-            backgroundImage: NetworkImage(
-              dummyImageUrl + "model,black,1",
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => OtherUserProfile()));
+            },
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                dummyImageUrl + "model,black,1",
+              ),
             ),
           ),
           title: RichText(
@@ -316,17 +338,14 @@ class AllNotifications extends StatelessWidget {
           trailing: SizedBox(
             height: 56,
             width: 56,
-                      child: Container(
+            child: Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    dummyImageUrl+"dance?random=$index"
-                  )
-                )
-              ),
-                padding: const EdgeInsets.all(16.0),
-                ),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image:
+                          NetworkImage(dummyImageUrl + "dance?random=$index"))),
+              padding: const EdgeInsets.all(16.0),
+            ),
           ),
         );
       }),

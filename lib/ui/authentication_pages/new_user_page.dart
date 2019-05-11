@@ -83,6 +83,8 @@ class NewUserPage extends StatelessWidget {
                             alignment: Alignment(1.0, 0.0),
                             children: <Widget>[
                               TextField(
+                                                              enabled: false,
+
                                 decoration:
                                     InputDecoration(labelText: "Select Gender"),
                               ),

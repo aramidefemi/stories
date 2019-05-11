@@ -1,5 +1,7 @@
 import 'package:stories/resources/dummy_data.dart';
 import 'package:flutter/material.dart';
+import 'package:stories/ui/profile_screens/other_user_profile.dart';
+import 'package:stories/ui/profile_screens/profile.dart';
 
 class Message extends StatelessWidget {
   var dummyImageUrl = DummyData.dummyImageUrl;
@@ -20,9 +22,16 @@ class Message extends StatelessWidget {
         actions: <Widget>[
           Container(
               margin: EdgeInsets.only(right: 16.0),
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(
-                  dummyImageUrl + "bella",
+              padding: EdgeInsets.all(8.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => Profile()));
+                },
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    dummyImageUrl + "bella",
+                  ),
                 ),
               ))
         ],
@@ -35,9 +44,15 @@ class Message extends StatelessWidget {
             onTap: () {},
             leading: Container(
               child: Stack(alignment: Alignment.topRight, children: <Widget>[
-                CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    dummyImageUrl + "student?random=$index",
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => OtherUserProfile()));
+                  },
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      dummyImageUrl + "student?random=$index",
+                    ),
                   ),
                 ),
                 (index == 0 || index == 2)

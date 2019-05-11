@@ -2,6 +2,7 @@ import 'package:stories/resources/dummy_data.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:stories/ui/main_tabs/stories_home_screens/stories.dart';
+import 'package:stories/ui/profile_screens/other_user_profile.dart';
 
 class Trending extends StatefulWidget {
   const Trending({
@@ -37,7 +38,7 @@ class _TrendingState extends State<Trending>
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, childAspectRatio: 2 / 3),
       itemBuilder: ((BuildContext context, int index) {
-        var storyImageUrl = dummyImageUrl + "girl?random=${index * index}";
+        var storyImageUrl = dummyImageUrl + "people?random=${index * index}";
         return Card(
           clipBehavior: Clip.antiAlias,
           shape: RoundedRectangleBorder(
@@ -54,23 +55,23 @@ class _TrendingState extends State<Trending>
             },
             child: Stack(alignment: Alignment(0.0, 0.9), children: <Widget>[
               // Hero(
-                // tag: storyImageUrl,
-                // child: 
-                Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                          storyImageUrl,
-                        )),
-                    //The gradient is added so the white text can be seen against images with white/bright backgrounds
-                    gradient: LinearGradient(
-                      colors: <Color>[Colors.black12, Colors.black12],
-                      stops: [0.1, 0.5],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
+              // tag: storyImageUrl,
+              // child:
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        storyImageUrl,
+                      )),
+                  //The gradient is added so the white text can be seen against images with white/bright backgrounds
+                  gradient: LinearGradient(
+                    colors: <Color>[Colors.black12, Colors.black12],
+                    stops: [0.1, 0.5],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                   ),
+                ),
                 // ),
               ),
               Positioned(
@@ -78,9 +79,17 @@ class _TrendingState extends State<Trending>
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        dummyImageUrl + "ladies?random=${index * index}",
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => OtherUserProfile()));
+                      },
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          dummyImageUrl + "ladies?random=${index * index}",
+                        ),
                       ),
                     ),
                     Row(
@@ -106,11 +115,26 @@ class _TrendingState extends State<Trending>
     var listTrendingWidget = ListView.separated(
       itemCount: 20,
       itemBuilder: ((BuildContext context, int index) {
+        var storyImageUrl = dummyImageUrl + "card?random=${index * index}";
+
         var listTileItem = ListTile(
-          onTap: () {},
-          leading: CircleAvatar(
-            backgroundImage: NetworkImage(
-              dummyImageUrl + "model,black,1",
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (_) => UserStories(
+                          storyImageUrl: storyImageUrl,
+                        )));
+          },
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => OtherUserProfile()));
+            },
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                dummyImageUrl + "model,black,1",
+              ),
             ),
           ),
           title: Text("Lucy Matt",

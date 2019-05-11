@@ -32,6 +32,7 @@ class ImageDetails extends StatelessWidget {
                               end: Alignment.bottomCenter,
                             ),
                             image: DecorationImage(
+                              fit: BoxFit.cover,
                               image: NetworkImage(
                                 storyImageUrl,
                               ),

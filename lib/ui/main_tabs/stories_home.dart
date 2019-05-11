@@ -6,6 +6,7 @@ import 'package:stories/ui/main_tabs/stories_home_screens/search.dart';
 import 'package:stories/ui/main_tabs/stories_home_screens/trending.dart';
 import 'package:stories/ui/main_tabs/stories_home_screens/upload_story.dart';
 import 'package:flutter/material.dart';
+import 'package:stories/ui/profile_screens/profile.dart';
 
 class StoriesHome extends StatefulWidget {
   @override
@@ -79,9 +80,16 @@ class _StoriesHomeState extends State<StoriesHome>
           Container(
             margin: EdgeInsets.only(right: 16.0),
             padding: EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                dummyImageUrl + "bella",
+            child: GestureDetector(
+                onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => Profile()));},
+                          child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  dummyImageUrl + "cars",
+                ),
               ),
             ),
           )

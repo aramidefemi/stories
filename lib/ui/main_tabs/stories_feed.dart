@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:stories/ui/main_tabs/stories_feed_screens/image_details.dart';
 import 'package:stories/ui/main_tabs/stories_home_screens/stories.dart';
+import 'package:stories/ui/profile_screens/other_user_profile.dart';
+import 'package:stories/ui/profile_screens/profile.dart';
 
 class StoriesFeed extends StatelessWidget {
   final dummyImageUrl = DummyData.dummyImageUrl;
@@ -28,9 +30,16 @@ class StoriesFeed extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(right: 16.0),
             padding: EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                dummyImageUrl + "bella",
+            child: GestureDetector(
+                onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => Profile()));},
+                          child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  dummyImageUrl + "bella",
+                ),
               ),
             ),
           )
@@ -57,43 +66,51 @@ class StoriesFeed extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   ListTile(
-                        onTap: () {},
-                        leading: CircleAvatar(
+                      onTap: () {},
+                      leading: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => OtherUserProfile()));
+                        },
+                        child: CircleAvatar(
                           backgroundImage: NetworkImage(
                             dummyImageUrl + "model,black,1",
                           ),
                         ),
-                        title: Text(
-                          "Lucy Matt",
-                          style: Theme.of(context).textTheme.subhead.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
-                        ),
-                        subtitle: Text(
-                          "Today 10:00am",
-                          style: Theme.of(context).textTheme.caption.copyWith(),
-                        ),
-                        trailing: index == 0
-                            ? OutlineButton(
-                                borderSide: BorderSide(
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                                highlightedBorderColor:
-                                    Theme.of(context).primaryColor,
-                                onPressed: () {},
-                                child: Text("Promote"),
-                              )
-                            : null),
-                  Expanded(
-                    // child: 
-                    // Hero(
-                      // tag: storyImageUrl,
-                                          child: Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: NetworkImage(storyImageUrl))),
                       ),
+                      title: Text(
+                        "Lucy Matt",
+                        style: Theme.of(context).textTheme.subhead.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                      subtitle: Text(
+                        "Today 10:00am",
+                        style: Theme.of(context).textTheme.caption.copyWith(),
+                      ),
+                      trailing: index == 0
+                          ? OutlineButton(
+                              borderSide: BorderSide(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              highlightedBorderColor:
+                                  Theme.of(context).primaryColor,
+                              onPressed: () {},
+                              child: Text("Promote"),
+                            )
+                          : null),
+                  Expanded(
+                    // child:
+                    // Hero(
+                    // tag: storyImageUrl,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(storyImageUrl))),
+                    ),
                     // ),
                   ),
                   Container(

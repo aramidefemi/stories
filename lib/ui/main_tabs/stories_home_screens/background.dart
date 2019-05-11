@@ -1,4 +1,5 @@
 import 'package:stories/resources/dummy_data.dart';
+import 'package:stories/ui/home.dart';
 import 'package:stories/ui/main_tabs/stories_home.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,9 @@ class Background extends StatelessWidget {
             child: Text("Select"),
             onPressed: () {
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (_) => StoriesHome()));
+                  context, MaterialPageRoute(builder: (_) => Home(
+                    
+                  )));
             },
             textColor: Theme.of(context).primaryColor,
           )
