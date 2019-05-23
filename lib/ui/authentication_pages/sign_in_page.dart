@@ -19,9 +19,9 @@ class _SignInPageState extends State<SignInPage> {
       child: OutlineButton(
         highlightedBorderColor: Theme.of(context).primaryColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(36.0),
         ),
-        padding: EdgeInsets.symmetric(vertical: 24.0),
+        padding: EdgeInsets.symmetric(vertical: 20.0),
         borderSide: BorderSide(
           color: Theme.of(context).primaryColor,
         ),
@@ -43,9 +43,9 @@ class _SignInPageState extends State<SignInPage> {
       width: double.infinity,
       child: FlatButton(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(36.0),
         ),
-        padding: EdgeInsets.symmetric(vertical: 24.0),
+        padding: EdgeInsets.symmetric(vertical: 20.0),
         color: Theme.of(context).primaryColor,
         child: Text(
           "Sign In",
@@ -58,9 +58,10 @@ class _SignInPageState extends State<SignInPage> {
         },
       ),
     );
+
     var appTitle = Text(
-      "Stories",
-      style: Theme.of(context).textTheme.display3.copyWith(
+      "CatchUP",
+      style: Theme.of(context).textTheme.display1.copyWith(
           color: Theme.of(context).textTheme.body1.color,
           fontFamily: "Scriptorama"),
     );
@@ -71,12 +72,15 @@ class _SignInPageState extends State<SignInPage> {
           child: Container(
             color: Theme.of(context).canvasColor,
             height: MediaQuery.of(context).size.height,
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(32.0),
             child: Center(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   appTitle,
+                  SizedBox(
+                    height: 36.0,
+                  ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
@@ -85,7 +89,7 @@ class _SignInPageState extends State<SignInPage> {
                         decoration: InputDecoration(labelText: "Email Address"),
                       )),
                       SizedBox(
-                        height: 16.0,
+                        height: 24.0,
                       ),
                       Material(
                           child: Stack(
@@ -106,10 +110,13 @@ class _SignInPageState extends State<SignInPage> {
                             )
                           ])),
                       SizedBox(
-                        height: 32.0,
+                        height: 36.0,
                       ),
-                      signInButton,
                     ],
+                  ),
+                  signInButton,
+                  SizedBox(
+                    height: 16.0,
                   ),
                   newUserButton,
                 ],
