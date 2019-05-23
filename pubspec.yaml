@@ -25,6 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   material_design_icons_flutter: ^3.2.3595
   keyboard_visibility: ^0.5.2
+  dots_indicator: ^0.0.5
+
 
 dev_dependencies:
   flutter_test:

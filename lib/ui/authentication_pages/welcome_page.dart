@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:stories/ui/authentication_pages/new_user_page.dart';
 import 'package:stories/ui/authentication_pages/sign_in_page.dart';
@@ -38,6 +39,9 @@ class WelcomePage extends StatelessWidget {
                 ),
                 Expanded(
                   child: SwipeOnboarding(),
+                ),
+                SizedBox(
+                  height: 12.0,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -101,61 +105,81 @@ class WelcomePage extends StatelessWidget {
   }
 }
 
-class SwipeOnboarding extends StatelessWidget {
+class SwipeOnboarding extends StatefulWidget {
   const SwipeOnboarding({
     Key key,
   }) : super(key: key);
 
   @override
+  _SwipeOnboardingState createState() => _SwipeOnboardingState();
+}
+
+class _SwipeOnboardingState extends State<SwipeOnboarding> {
+  int _currentPage;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentPage = 0;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              child: Image.asset("images/intro_image.png"),
-            ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Expanded(
+          child: PageView(
+              onPageChanged: (currentPage) {
+                setState(() {
+                  _currentPage = currentPage;
+                });
+              },
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    child: Image.asset(
+                      "images/intro_image.png",
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    child: Image.asset(
+                      "images/intro_image.png",
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    child: Image.asset(
+                      "images/intro_image.png",
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    child: Image.asset(
+                      "images/intro_image.png",
+                    ),
+                  ),
+                ),
+              ]),
+        ),
+        DotsIndicator(
+          dotsCount: 4,
+          position: _currentPage,
+          decorator: DotsDecorator(
+            size: const Size.square(16.0),
+            activeSize: const Size.square(16.0),
+            activeColor: Theme.of(context).primaryColor,
           ),
-          SizedBox(
-            height: 44.0,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.all(2.0),
-                height: 16.0,
-                decoration:
-                    BoxDecoration(color: Colors.red, shape: BoxShape.circle),
-                width: 16.0,
-              ),
-              Container(
-                margin: EdgeInsets.all(2.0),
-                height: 16.0,
-                decoration:
-                    BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
-                width: 16.0,
-              ),
-              Container(
-                margin: EdgeInsets.all(2.0),
-                height: 16.0,
-                decoration:
-                    BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
-                width: 16.0,
-              ),
-              Container(
-                margin: EdgeInsets.all(2.0),
-                height: 16.0,
-                decoration:
-                    BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
-                width: 16.0,
-              ),
-            ],
-          )
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
