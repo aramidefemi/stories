@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class NewUserPage extends StatelessWidget {
+  String _genderValue;
+
   final String verificationMessage =
       "We'll send verification code to the above email to verify";
   @override
@@ -11,18 +13,19 @@ class NewUserPage extends StatelessWidget {
       width: double.infinity,
       child: FlatButton(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(36.0),
         ),
-        padding: EdgeInsets.symmetric(vertical: 24.0),
+        padding: EdgeInsets.symmetric(vertical: 16.0),
         color: Theme.of(context).primaryColor,
         child: Text(
-          "Sign In",
+          "Get Started",
           style: Theme.of(context).textTheme.title.copyWith(
                 color: Colors.white,
               ),
         ),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (_) => Home()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => NewUserPage()));
         },
       ),
     );
@@ -63,57 +66,62 @@ class NewUserPage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Container(
             height: MediaQuery.of(context).size.height - kToolbarHeight,
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            padding: EdgeInsets.all(32.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Container(
-                  child: Form(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        TextField(
-                          decoration: InputDecoration(labelText: "Full Name"),
+                TextField(
+                  decoration: InputDecoration(hintText: "Full Name"),
+                ),
+                TextField(
+                  decoration: InputDecoration(hintText: "Email Address"),
+                ),
+                StatefulBuilder(
+                  builder: (BuildContext context, StateSetter setState) {
+                    print("object");
+                    return DropdownButton<String>(
+                      items: [
+                        DropdownMenuItem(
+                          value: "Male",
+                          child: Text(
+                            "Male",
+                          ),
                         ),
-                        TextField(
-                          decoration:
-                              InputDecoration(labelText: "Email Address"),
-                        ),
-                        Stack(
-                            alignment: Alignment(1.0, 0.0),
-                            children: <Widget>[
-                              TextField(
-                                                              enabled: false,
-
-                                decoration:
-                                    InputDecoration(labelText: "Select Gender"),
-                              ),
-                              Positioned(
-                                child: IconButton(
-                                  icon:
-                                      Icon(MdiIcons.arrowDownDropCircleOutline),
-                                  onPressed: () {},
-                                ),
-                              ),
-                            ]),
-                        TextField(
-                          decoration: InputDecoration(labelText: "Password"),
-                        ),
-                        TextField(
-                          decoration:
-                              InputDecoration(labelText: "Phone Number"),
+                        DropdownMenuItem(
+                          value: "Female",
+                          child: Text(
+                            "Female",
+                          ),
                         ),
                       ],
-                    ),
-                  ),
+                      hint: Text("Select Gender"),
+                      onChanged: (value) {
+                        setState(() {
+                          _genderValue = value;
+                        });
+                      },
+                      value: _genderValue,
+                      isExpanded: true,
+                    );
+                  },
                 ),
-                Column(
-                  children: <Widget>[
-                    signInButton,
-                    SizedBox(height: 8.0),
-                    verificationText,
-                  ],
+
+                TextField(
+                  decoration: InputDecoration(hintText: "Password"),
                 ),
+                TextField(
+                  decoration: InputDecoration(hintText: "Phone Number"),
+                ),
+                signInButton,
+                SizedBox(height: 8.0),
+                verificationText,
+                // Column(
+                //   children: <Widget>[
+                //     signInButton,
+                //     SizedBox(height: 8.0),
+                //     verificationText,
+                //   ],
+                // ),
               ],
             ),
           ),
