@@ -71,14 +71,15 @@ class NewUserPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 TextField(
-                  decoration: InputDecoration(hintText: "Full Name"),
+                  decoration: InputDecoration(labelText: "Full Name"),
                 ),
                 TextField(
-                  decoration: InputDecoration(hintText: "Email Address"),
+                  decoration: InputDecoration(labelText: "Email Address"),
                 ),
+
                 StatefulBuilder(
                   builder: (BuildContext context, StateSetter setState) {
-                    return DropdownButton<String>(
+                    return DropdownButtonFormField(
                       items: [
                         DropdownMenuItem(
                           value: "Male",
@@ -93,23 +94,24 @@ class NewUserPage extends StatelessWidget {
                           ),
                         ),
                       ],
-                      hint: Text("Select Gender"),
-                      onChanged: (value) {
+                      onChanged: (selectedGender) {
                         setState(() {
-                          _genderValue = value;
+                          _genderValue = selectedGender;
                         });
                       },
                       value: _genderValue,
-                      isExpanded: true,
+                      decoration: InputDecoration(
+                        labelText: "Select Gender",
+                      ),
                     );
                   },
                 ),
 
                 TextField(
-                  decoration: InputDecoration(hintText: "Password"),
+                  decoration: InputDecoration(labelText: "Password"),
                 ),
                 TextField(
-                  decoration: InputDecoration(hintText: "Phone Number"),
+                  decoration: InputDecoration(labelText: "Phone Number"),
                 ),
                 signInButton,
                 SizedBox(height: 8.0),
