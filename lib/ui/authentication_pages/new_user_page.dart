@@ -78,7 +78,6 @@ class NewUserPage extends StatelessWidget {
                 ),
                 StatefulBuilder(
                   builder: (BuildContext context, StateSetter setState) {
-                    print("object");
                     return DropdownButton<String>(
                       items: [
                         DropdownMenuItem(

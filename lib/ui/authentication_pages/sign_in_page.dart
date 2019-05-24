@@ -1,3 +1,4 @@
+import 'package:stories/ui/authentication_pages/forgot_password_page.dart';
 import 'package:stories/ui/authentication_pages/new_user_page.dart';
 import 'package:stories/ui/home.dart';
 import 'package:flutter/material.dart';
@@ -105,7 +106,13 @@ class _SignInPageState extends State<SignInPage> {
                                 child: Text(
                                   "Forgot?",
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) =>
+                                              ForgotPasswordPage()));
+                                },
                               ),
                             )
                           ])),

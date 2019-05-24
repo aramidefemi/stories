@@ -305,11 +305,9 @@ class _UploadStoryState extends State<UploadStory> {
                               DropdownButton(
                                 style: TextStyle(color: Colors.black),
                                 onChanged: (value) {
-                                  print("changed");
                                   setState(() {
                                     _value = value;
                                   });
-                                  print(value + " to" + _value);
                                 },
                                 items: [
                                   DropdownMenuItem(
