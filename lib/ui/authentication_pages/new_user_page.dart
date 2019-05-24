@@ -1,6 +1,5 @@
-import 'package:stories/ui/home.dart';
+import 'package:stories/ui/authentication_pages/verification_page.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class NewUserPage extends StatelessWidget {
   String _genderValue;
@@ -18,14 +17,14 @@ class NewUserPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 16.0),
         color: Theme.of(context).primaryColor,
         child: Text(
-          "Get Started",
+          "Sign In",
           style: Theme.of(context).textTheme.title.copyWith(
                 color: Colors.white,
               ),
         ),
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (_) => NewUserPage()));
+              context, MaterialPageRoute(builder: (_) => VerificationPage()));
         },
       ),
     );
@@ -76,7 +75,6 @@ class NewUserPage extends StatelessWidget {
                 TextField(
                   decoration: InputDecoration(labelText: "Email Address"),
                 ),
-
                 StatefulBuilder(
                   builder: (BuildContext context, StateSetter setState) {
                     return DropdownButtonFormField(
@@ -106,7 +104,6 @@ class NewUserPage extends StatelessWidget {
                     );
                   },
                 ),
-
                 TextField(
                   decoration: InputDecoration(labelText: "Password"),
                 ),
@@ -116,13 +113,6 @@ class NewUserPage extends StatelessWidget {
                 signInButton,
                 SizedBox(height: 8.0),
                 verificationText,
-                // Column(
-                //   children: <Widget>[
-                //     signInButton,
-                //     SizedBox(height: 8.0),
-                //     verificationText,
-                //   ],
-                // ),
               ],
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:stories/ui/authentication_pages/verification_page.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   final String verificationMessage =
@@ -67,7 +68,10 @@ class ForgotPasswordPage extends StatelessWidget {
                           color: Colors.white,
                         ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                     Navigator.push(
+              context, MaterialPageRoute(builder: (_) => VerificationPage()));
+                  },
                 ),
               ),
             ],
